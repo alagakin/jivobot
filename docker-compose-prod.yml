@@ -1,0 +1,39 @@
+version: '3.5'
+
+services:
+  app:
+    container_name: app
+    ports:
+      - "80:80"
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/usr/src/app
+    networks:
+      - jivo_bot_network
+      - jivo_bot_redis_network
+    command: [ "sh", "-c", "uvicorn main:app --host 0.0.0.0 --port 80" ]
+    restart: always
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - jivo_bot_mongodb_data:/data/db
+    networks:
+      - jivo_bot_redis_network
+    ports:
+      - "27017:27017"
+
+networks:
+  jivo_bot_network:
+  jivo_bot_redis_network:
+
+volumes:
+  jivo_bot_mongodb_data:
+

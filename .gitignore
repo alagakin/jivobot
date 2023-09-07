@@ -1,0 +1,7 @@
+.idea
+meilisearch_data/
+*.log
+.env
+ssl/
+db_data/
+celerybeat-schedule
