@@ -17,18 +17,19 @@ services:
       - jivo_bot_redis_network
     command: [ "sh", "-c", "uvicorn main:app --host 0.0.0.0 --port 80 --reload" ]
     restart: always
-  mongodb:
-    container_name: mongodb
-    image: mongo:latest
+  db:
     restart: always
-    env_file:
-      - .env
-    volumes:
-      - jivo_bot_mongodb_data:/data/db
-    networks:
-      - jivo_bot_redis_network
+    image: postgres:15.3
     ports:
-      - "50202:27017"
+      - "50202:5432"
+    volumes:
+      - jivo_bot_db_data:/var/lib/postgresql/data
+    networks:
+      - jivo_bot_network
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB=test
   redis:
     container_name: redis
     restart: always
@@ -41,4 +42,4 @@ networks:
   jivo_bot_redis_network:
 
 volumes:
-  jivo_bot_mongodb_data:
+  jivo_bot_db_data:

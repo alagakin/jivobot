@@ -87,3 +87,5 @@ beautifulsoup4
 meilisearch
 pymongo
 requests
+alembic
+sqlalchemy

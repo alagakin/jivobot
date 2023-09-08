@@ -32,3 +32,15 @@ class JivoRequest(BaseModel):
     channel: Channel
     event: str
     options: Union[None, dict] = None
+
+
+class ChatMessageSchema(BaseModel):
+    id: int
+    client_id: str
+    chat_id: str
+    channel_id: str
+    from_bot: bool
+    text: str
+
+    class Config:
+        from_attributes = True

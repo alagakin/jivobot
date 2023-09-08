@@ -1,3 +1,8 @@
 import os
 JIVO_URL = os.getenv('JIVO_URL')
 JIVO_KEY = os.getenv('JIVO_KEY')
+POSTGRES_USER = os.getenv('POSTGRES_USER')
+POSTGRES_DB = os.getenv('POSTGRES_DB')
+POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
+POSTGRES_HOST = os.getenv('POSTGRES_HOST')
+POSTGRES_PORT = os.getenv('POSTGRES_PORT')
