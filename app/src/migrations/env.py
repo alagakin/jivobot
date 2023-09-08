@@ -5,8 +5,8 @@ from sqlalchemy import pool
 
 from alembic import context
 from config import POSTGRES_USER, POSTGRES_DB, POSTGRES_PASSWORD, POSTGRES_HOST, POSTGRES_PORT
-from database import metadata, Base
-from models import *
+from database import metadata
+from jivo_bot.models import *
 import os
 import sys
 

@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-from schemas import JivoRequest
-from handler import RequestHandler
-from exceptions import UnsupportedMessageType, UnsupportedEvent
-from strategies import EchoStrategy
+from jivo_bot.schemas import JivoRequest
+from jivo_bot.handler import RequestHandler
+from jivo_bot.exceptions import UnsupportedMessageType, UnsupportedEvent
+from jivo_bot.strategies import EchoStrategy
 from loggers import logger
 from config import JIVO_KEY
 app = FastAPI()

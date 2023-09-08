@@ -1,7 +1,7 @@
 import json
 import requests
 from abc import ABC, abstractmethod
-from schemas import JivoRequest
+from jivo_bot.schemas import JivoRequest
 from config import JIVO_KEY, JIVO_URL
 
 

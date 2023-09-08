@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean
 
-from schemas import ChatMessageSchema
+from jivo_bot.schemas import ChatMessageSchema
 
 
 from database import Base

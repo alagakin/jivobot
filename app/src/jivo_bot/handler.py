@@ -1,6 +1,6 @@
-from schemas import JivoRequest
-from exceptions import UnsupportedMessageType, UnsupportedEvent
-from strategies import ResponseStrategy
+from jivo_bot.schemas import JivoRequest
+from jivo_bot.exceptions import UnsupportedMessageType, UnsupportedEvent
+from jivo_bot.strategies import ResponseStrategy
 
 
 class RequestHandler:
