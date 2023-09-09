@@ -51,5 +51,5 @@ class SQLAlchemyRepository(AbstractRepository):
             return results
 
 
-class ChatMessageRepository(SQLAlchemyRepository):
+class ChatMessageSQLRepository(SQLAlchemyRepository):
     model = ChatMessage

@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from jivo_bot.repository import ChatMessageRepository
+from jivo_bot.repository import ChatMessageSQLRepository
 from jivo_bot.schemas import JivoRequest
 from jivo_bot.handler import RequestHandler
 from jivo_bot.exceptions import UnsupportedMessageType, UnsupportedEvent
@@ -13,7 +13,7 @@ app = FastAPI()
 @app.post(f"/{JIVO_KEY}")
 async def root(request: JivoRequest):
     try:
-        repository = ChatMessageRepository()
+        repository = ChatMessageSQLRepository()
         strategy = EchoStrategy(repository)
         handler = RequestHandler(request, strategy)
         await handler.handle()
