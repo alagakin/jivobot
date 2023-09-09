@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from jivo_bot.repository import ChatMessageSQLRepository
 from jivo_bot.schemas import JivoRequest
 from jivo_bot.handler import RequestHandler
@@ -11,9 +11,8 @@ app = FastAPI()
 
 
 @app.post(f"/{JIVO_KEY}")
-async def root(request: JivoRequest):
+async def root(request: JivoRequest, repository=Depends(ChatMessageSQLRepository)):
     try:
-        repository = ChatMessageSQLRepository()
         strategy = EchoStrategy(repository)
         handler = RequestHandler(request, strategy)
         await handler.handle()
